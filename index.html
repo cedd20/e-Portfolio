@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <title>e-Portfolio | CED</title>
+</head>
+
+<body>
+    <canvas id="particleCanvas"></canvas>
+    <nav>
+        <div class="logo">
+            Ced <span>DEV</span>
+        </div>
+
+        <div class="nav-container">
+            <div class="links">
+                <a href="">Home</a>
+                <a href="">About</a>
+                <a href="">Skills</a>
+                <a href="">Contact</a>
+            </div>
+        </div>
+        <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        <div class="dropdown">
+            <div class="links">
+                <a href="" onclick="cancel()">Home</a>
+                <a href="" onclick="cancel()">About</a>
+                <a href="" onclick="cancel()">Skills</a>
+                <a href="" onclick="cancel()">Contact</a>
+                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
+            </div>
+        </div>
+    </nav>
+    <section class="main-container">
+        <div class="content">
+            <h1>Hi, I'm <span> Ced </span></h1>
+            <div class="typewriter">I'm a <span class="typewriter-text"></span><label for="">|</label></div>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+            <div class="social-links">
+                <i class="fa-brands fa-facebook"></i>
+                <i class="fa-brands fa-linkedin"></i>
+                <i class="fa-brands fa-square-instagram"></i>
+                <i class="fa-brands fa-github"></i>
+            </div>
+            <a href="Files/Artiaga-RESUME.pdf" download="Artiaga-RESUME.pdf">
+                <button>Download CV</button>
+            </a>
+        </div>
+        <div class="image">
+            <img src="Images/image.png" alt="">
+            <div>
+            </div>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
