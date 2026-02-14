@@ -18,42 +18,81 @@
 
         <div class="nav-container">
             <div class="links">
-                <a href="">Home</a>
-                <a href="">About</a>
-                <a href="">Skills</a>
-                <a href="">Contact</a>
+                <a href="#home">Home</a>
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
         <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
         <div class="dropdown">
             <div class="links">
-                <a href="" onclick="cancel()">Home</a>
-                <a href="" onclick="cancel()">About</a>
-                <a href="" onclick="cancel()">Skills</a>
-                <a href="" onclick="cancel()">Contact</a>
+                <a href="#home" onclick="cancel()">Home</a>
+                <a href="#about" onclick="cancel()">About</a>
+                <a href="#skills" onclick="cancel()">Skills</a>
+                <a href="#contact" onclick="cancel()">Contact</a>
                 <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
             </div>
         </div>
     </nav>
-    <section class="main-container">
+    <section class="main-container" id="home">
         <div class="content">
             <h1>Hi, I'm <span> Ced </span></h1>
             <div class="typewriter">I'm a <span class="typewriter-text"></span><label for="">|</label></div>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptas, voluptate.</p>
+            <p>Information Technology student at Polytechnic University of the Philippines. Interested in Web
+                Development, UI/UX, and Software Development.</p>
             <div class="social-links">
-                <i class="fa-brands fa-facebook"></i>
-                <i class="fa-brands fa-linkedin"></i>
-                <i class="fa-brands fa-square-instagram"></i>
-                <i class="fa-brands fa-github"></i>
+                <a href="https://www.facebook.com/cedqt20" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://ph.linkedin.com/in/cedick-artiaga-2b8753298" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-linkedin"></i>
+                </a>
+                <a href="https://www.instagram.com/cedartiaga" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-square-instagram"></i>
+                </a>
+                <a href="https://github.com/cedd20" target="_blank" rel="noopener noreferrer">
+                    <i class="fa-brands fa-github"></i>
+                </a>
             </div>
-            <a href="Files/Artiaga-RESUME.pdf" download="Artiaga-RESUME.pdf">
-                <button>Download CV</button>
-            </a>
+            <div class="buttons">
+                <a href="Files/Artiaga-RESUME.pdf" download="Artiaga-RESUME.pdf">
+                    <button>Download CV</button>
+                </a>
+                <a href="mailto:cedickartiaga@gmail.com" class="contact-me">Contact Me</a>
+            </div>
         </div>
         <div class="image">
             <img src="Images/image.png" alt="">
-            <div>
+        </div>
+    </section>
+
+    <section class="about-container" id="about">
+        <div class="about-content">
+            <h2 class="section-title">About <span>Me</span></h2>
+
+            <div class="about-wrapper">
+                <div class="about-image">
+                    <div class="image-box">
+                        <img src="Images/image.png" alt="">
+                    </div>
+                </div>
+
+                <div class="about-details-glass card">
+                    <div class="about-text-bio">
+                        <p>Hello! I'm Ced, a passionate IT student deeply interested in the world of web development and
+                            design. My journey in technology started with a curiosity about how things work on the
+                            internet, which led me to dive into HTML, CSS, and JavaScript.</p>
+                        <p>I thrive on creating clean, efficient, and visually appealing digital experiences. Whether
+                            it's crafting a responsive layout or implementing interactive features, I'm always eager to
+                            learn and grow in this ever-evolving field.</p>
+                        <p>Currently pursuing a Bachelor of Science in Information Technology at the Polytechnic
+                            University of the Philippines, I am dedicated to honing my skills and building impactful
+                            solutions.</p>
+                    </div>
+                </div>
             </div>
+        </div>
     </section>
     <script src="script.js"></script>
 </body>

@@ -1,10 +1,10 @@
 function hamburg() {
     const navbar = document.querySelector('.dropdown');
-    navbar.style.transform = 'translateY(0)';
+    navbar.classList.add('active');
 }
 function cancel() {
     const navbar = document.querySelector('.dropdown');
-    navbar.style.transform = 'translateY(-500px)';
+    navbar.classList.remove('active');
 }
 
 const texts =
@@ -123,3 +123,25 @@ function initParticles() {
     createParticles();
     animate();
 }
+
+/* ================= SCROLL REVEAL ================= */
+const observerOptions = {
+    threshold: 0.2
+};
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('reveal');
+        } else {
+            entry.target.classList.remove('reveal');
+        }
+    });
+}, observerOptions);
+
+document.addEventListener('DOMContentLoaded', () => {
+    const sections = document.querySelectorAll('.main-container, .about-container');
+    sections.forEach(section => {
+        observer.observe(section);
+    });
+});
