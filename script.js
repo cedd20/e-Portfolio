@@ -126,7 +126,8 @@ function initParticles() {
 
 /* ================= SCROLL REVEAL ================= */
 const observerOptions = {
-    threshold: 0.2
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px' // Triggers slightly before the element hits the threshold
 };
 
 const observer = new IntersectionObserver((entries) => {
@@ -140,8 +141,83 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.main-container, .about-container');
+    const sections = document.querySelectorAll('.main-container, .about-container, .education-container');
     sections.forEach(section => {
         observer.observe(section);
     });
+
+    const nav = document.querySelector('nav');
+    window.addEventListener('scroll', () => {
+        if (window.scrollY > 50) {
+            nav.classList.add('scrolled');
+        } else {
+            nav.classList.remove('scrolled');
+        }
+    });
+});
+
+/* ================= EDUCATION GALLERY ================= */
+let currentImageIndex = 1;
+const totalImages = 10;
+
+function updateGallery() {
+    const activeCard = document.getElementById('active-card');
+    const prevCard = document.getElementById('prev-card');
+    const nextCard = document.getElementById('next-card');
+
+    if (!activeCard || !prevCard || !nextCard) return;
+
+    const activeImg = activeCard.querySelector('img');
+    const prevImg = prevCard.querySelector('img');
+    const nextImg = nextCard.querySelector('img');
+
+    const prevIndex = (currentImageIndex - 2 + totalImages) % totalImages + 1;
+    const nextIndex = (currentImageIndex % totalImages) + 1;
+
+    // Apply switching state for smooth fade and scale
+    const cards = [activeCard, prevCard, nextCard];
+    cards.forEach(card => card.classList.add('switching'));
+
+    setTimeout(() => {
+        activeImg.src = `Images/${currentImageIndex}C.jpg`;
+        prevImg.src = `Images/${prevIndex}C.jpg`;
+        nextImg.src = `Images/${nextIndex}C.jpg`;
+
+        setTimeout(() => {
+            cards.forEach(card => card.classList.remove('switching'));
+        }, 100);
+    }, 150);
+}
+
+function nextImage() {
+    currentImageIndex = (currentImageIndex % totalImages) + 1;
+    updateGallery();
+}
+
+function prevImage() {
+    currentImageIndex = (currentImageIndex - 2 + totalImages) % totalImages + 1;
+    updateGallery();
+}
+
+// Initial update
+document.addEventListener('DOMContentLoaded', () => {
+    updateGallery();
+
+    // Intersection Observer for Autoplay Video
+    const video = document.getElementById('capstone-video');
+    if (video) {
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    video.play().catch(error => {
+                        console.log("Autoplay prevented:", error);
+                    });
+                } else {
+                    video.pause();
+                }
+            });
+        }, { threshold: 0.5 }); // Play when 50% visible
+
+        observer.observe(video);
+    }
 });
