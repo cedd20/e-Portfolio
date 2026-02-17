@@ -1047,3 +1047,284 @@ section {
         font-size: 1rem;
     }
 }
+
+/* ================= SKILLS SECTION ================= */
+
+.skills-container {
+    width: 100%;
+    min-height: 60vh;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 0 10% 80px;
+    color: white;
+    overflow: hidden;
+    flex-direction: column;
+}
+
+.skills-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 30px;
+    width: 100%;
+    max-width: 1200px;
+    margin-top: 50px;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1s cubic-bezier(0.22, 1, 0.36, 1) 0.5s;
+}
+
+.skills-container.reveal .section-title {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills-container.reveal .skills-grid {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skill-card {
+    padding: 30px 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
+    /* Needed for absolute positioning of stats */
+}
+
+.skill-card:hover {
+    transform: translateY(-10px);
+}
+
+.skill-card i,
+.skill-card .skill-icon-img {
+    font-size: 4rem;
+    color: white;
+    /* Default fallback */
+    transition: 0.3s ease;
+}
+
+.skill-card:hover i,
+.skill-card:hover .skill-icon-img {
+    transform: translateY(-5px) scale(1.1);
+}
+
+.skill-info {
+    width: 100%;
+    margin-top: 15px;
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.4s cubic-bezier(0.25, 1, 0.5, 1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+}
+
+.skill-card:hover .skill-info {
+    opacity: 1;
+    max-height: 60px;
+    /* Increased slightly */
+    margin-top: 10px;
+}
+
+.skill-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 2px;
+}
+
+.skill-label {
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.skill-percent {
+    font-size: 0.9rem;
+    font-weight: 700;
+    color: white;
+}
+
+.skill-bar {
+    width: 100%;
+    height: 6px;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+}
+
+.skill-progress {
+    height: 100%;
+    width: 0;
+    /* Start at 0 for animation */
+    border-radius: 10px;
+    transition: width 1s ease-in-out;
+}
+
+/* Animate width on hover - requires the inline style to be effective,
+   but since inline style is set, we need a way to trigger it.
+   Usually we'd use JS or just let it be fixed width.
+   To animate from 0, we can use a keyframe or just simple transition if width was 0 initially.
+   However, the inline style overrides CSS width.
+   Trick: Set inline styling on inner span or just use simple reveal.
+   Let's rely on the container reveal for now, but to animate the bar filling up,
+   we can use a transform or simply let the inline width take effect.
+*/
+
+.skill-card:hover .skill-progress {
+    /* The inline width will be applied. To animate from 0 *on hover*,
+       we can't easily do it without JS removing/adding the width or using animation.
+       Alternative: Use max-width animation or transform scaleX.
+    */
+    animation: fillBar 1s forwards;
+}
+
+@keyframes fillBar {
+    from {
+        width: 0;
+    }
+}
+
+.skill-card h3 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: rgba(255, 255, 255, 0.8);
+    letter-spacing: 1px;
+    transition: 0.3s ease;
+    margin-bottom: 0px;
+    /* Adjust spacing */
+}
+
+.skill-card:hover h3 {
+    color: white;
+}
+
+/* Specific Skill Colors (Icon & Progress Bar) */
+.skill-card.html i,
+.skill-card.html .skill-percent {
+    color: #e34f26;
+}
+
+.skill-card.html .skill-progress {
+    background: #e34f26;
+    box-shadow: 0 0 10px #e34f26;
+}
+
+.skill-card.css i,
+.skill-card.css .skill-percent {
+    color: #1572b6;
+}
+
+.skill-card.css .skill-progress {
+    background: #1572b6;
+    box-shadow: 0 0 10px #1572b6;
+}
+
+.skill-card.js i,
+.skill-card.js .skill-percent {
+    color: #f7df1e;
+}
+
+.skill-card.js .skill-progress {
+    background: #f7df1e;
+    box-shadow: 0 0 10px #f7df1e;
+}
+
+/* C++ Icon Styling */
+.skill-card .skill-icon-img {
+    height: 4rem;
+    width: auto;
+    transition: 0.3s ease;
+}
+
+/* C++ Stat Color */
+.skill-card.cpp .skill-percent {
+    color: #00599c;
+}
+
+.skill-card.cpp .skill-progress {
+    background: #00599c;
+    box-shadow: 0 0 10px #00599c;
+}
+
+.skill-card.cpp:hover .skill-icon-img {
+    filter: drop-shadow(0 0 10px #00599c);
+    transform: scale(1.1);
+}
+
+.skill-card.python i,
+.skill-card.python .skill-percent {
+    color: #3776ab;
+}
+
+.skill-card.python .skill-progress {
+    background: #3776ab;
+    box-shadow: 0 0 10px #3776ab;
+}
+
+.skill-card.react i,
+.skill-card.react .skill-percent {
+    color: #61dafb;
+}
+
+.skill-card.react .skill-progress {
+    background: #61dafb;
+    box-shadow: 0 0 10px #61dafb;
+}
+
+.skill-card.github i,
+.skill-card.github .skill-percent {
+    color: #ffffff;
+}
+
+.skill-card.github .skill-progress {
+    background: #ffffff;
+    box-shadow: 0 0 10px #ffffff;
+}
+
+.skill-card.mysql i,
+.skill-card.mysql .skill-percent {
+    color: #4479a1;
+}
+
+.skill-card.mysql .skill-progress {
+    background: #4479a1;
+    box-shadow: 0 0 10px #4479a1;
+}
+
+@media (max-width: 992px) {
+    .skills-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+    }
+
+    .skill-card {
+        padding: 25px 15px;
+    }
+
+    .skill-card i {
+        font-size: 3rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .skills-grid {
+        grid-template-columns: 1fr;
+    }
+}

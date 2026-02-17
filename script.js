@@ -141,7 +141,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.main-container, .about-container, .education-container');
+    const sections = document.querySelectorAll('.main-container, .about-container, .education-container, .skills-container');
     sections.forEach(section => {
         observer.observe(section);
     });
