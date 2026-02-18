@@ -1,10 +1,12 @@
 function hamburg() {
     const navbar = document.querySelector('.dropdown');
     navbar.classList.add('active');
+    document.querySelector('nav').classList.add('active');
 }
 function cancel() {
     const navbar = document.querySelector('.dropdown');
     navbar.classList.remove('active');
+    document.querySelector('nav').classList.remove('active');
 }
 
 const texts =
@@ -141,7 +143,7 @@ const observer = new IntersectionObserver((entries) => {
 }, observerOptions);
 
 document.addEventListener('DOMContentLoaded', () => {
-    const sections = document.querySelectorAll('.main-container, .about-container, .education-container, .skills-container');
+    const sections = document.querySelectorAll('.main-container, .about-container, .education-container, .skills-container, .projects-container, .contact-container');
     sections.forEach(section => {
         observer.observe(section);
     });
@@ -220,4 +222,61 @@ document.addEventListener('DOMContentLoaded', () => {
 
         observer.observe(video);
     }
+    // Project Video Control (Autoplay on Hover + Reset)
+    const projectVideo = document.getElementById('project1-video');
+    if (projectVideo) {
+        const projectCard = projectVideo.closest('.project-card');
+
+        projectCard.addEventListener('mouseover', () => {
+            projectVideo.play().catch(error => {
+                console.log("Hover play prevented:", error);
+            });
+        });
+
+        projectCard.addEventListener('mouseout', () => {
+            if (!projectCard.classList.contains('focused')) {
+                projectVideo.pause();
+                projectVideo.currentTime = 0; // Reset to start
+            }
+        });
+
+        // Click to Focus/See Clearly
+        projectCard.addEventListener('click', (e) => {
+            // Don't focus if a link inside was clicked
+            if (e.target.closest('a')) return;
+
+            const isFocused = projectCard.classList.contains('focused');
+
+            // Remove focus from all other cards first
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.classList.remove('focused');
+                const v = card.querySelector('video');
+                if (v && v !== projectVideo) {
+                    v.pause();
+                    v.currentTime = 0;
+                }
+            });
+
+            if (!isFocused) {
+                projectCard.classList.add('focused');
+                projectVideo.play();
+            } else {
+                projectCard.classList.remove('focused');
+            }
+        });
+    }
+
+    // Close focus when clicking outside
+    document.addEventListener('click', (e) => {
+        if (!e.target.closest('.project-card')) {
+            document.querySelectorAll('.project-card').forEach(card => {
+                card.classList.remove('focused');
+                const v = card.querySelector('video');
+                if (v) {
+                    v.pause();
+                    v.currentTime = 0;
+                }
+            });
+        }
+    });
 });

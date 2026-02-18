@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
-    <title>e-Portfolio | CED</title>
+    <title>e-Portfolio|CED</title>
 </head>
 
 <body>
@@ -25,13 +25,13 @@
             </div>
         </div>
         <i class="fa-solid fa-bars hamburg" onclick="hamburg()"></i>
+        <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
         <div class="dropdown">
             <div class="links">
                 <a href="#home" onclick="cancel()">Home</a>
                 <a href="#about" onclick="cancel()">About</a>
                 <a href="#skills" onclick="cancel()">Skills</a>
                 <a href="#contact" onclick="cancel()">Contact</a>
-                <i class="fa-solid fa-xmark cancel" onclick="cancel()"></i>
             </div>
         </div>
     </nav>
@@ -336,6 +336,146 @@
             </div>
         </div>
     </section>
+
+    <!-- ================= PROJECTS SECTION ================= -->
+    <section class="projects-container" id="projects">
+        <div class="about-content">
+            <h2 class="section-title">My <span>Projects</span></h2>
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-img moving">
+                        <video id="project1-video" poster="Images/e-Portfolio.jpg" muted loop playsinline>
+                            <source src="Videos/e-Portfolio.mp4" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                    <div class="project-content">
+                        <h3>e-Portfolio</h3>
+                        <p>A personal portfolio showcasing my development skills, featuring a sleek glassmorphism
+                            design, interactive particle systems, and a fully responsive layout.
+                        </p>
+                        <div class="project-tags">
+                            <span>HTML</span>
+                            <span>CSS</span>
+                            <span>JavaScript</span>
+                            <a href="https://github.com/cedd20/e-Portfolio" target="_blank" class="project-code-link">
+                                <i class="fa-brands fa-github"></i> Code
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Project Title 2</h3>
+                        <p>A brief description of project 2 goes here. Explain the key features and technologies used.
+                        </p>
+                        <div class="project-tags">
+                            <span>React</span>
+                            <span>Node.js</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fa-brands fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Project Title 3</h3>
+                        <p>A brief description of project 3 goes here. Explain the key features and technologies used.
+                        </p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Django</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fa-brands fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-content">
+                        <h3>Project Title 4</h3>
+                        <p>A brief description of project 4 goes here. Explain the key features and technologies used.
+                        </p>
+                        <div class="project-tags">
+                            <span>C++</span>
+                            <span>Qt</span>
+                        </div>
+                        <div class="project-links">
+                            <a href="#"><i class="fa-brands fa-github"></i> Code</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ================= CONTACT SECTION ================= -->
+    <section class="contact-container" id="contact">
+        <div class="contact-main-wrapper">
+            <div class="contact-form-area">
+                <form action="#">
+                    <div class="input-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" required>
+                    </div>
+                    <div class="row-inputs">
+                        <div class="input-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        <div class="input-group">
+                            <label for="phone">Phone Number</label>
+                            <input type="tel" id="phone" placeholder="+63 000-000-0000">
+                        </div>
+                    </div>
+                    <div class="input-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="submit-btn">Submit</button>
+                </form>
+            </div>
+
+            <div class="contact-info-area">
+                <h2 class="contact-heading">Get In<span> Touch </span></h2>
+                <p class="contact-desc">
+                    For questions, technical assistance, or collaboration opportunities via the contact information
+                    provided.
+                </p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-phone"></i>
+                        </div>
+                        <span>+639083499844</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-envelope"></i>
+                        </div>
+                        <span>cedickartiaga58@gmail.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <div class="icon-circle">
+                            <i class="fa-solid fa-location-dot"></i>
+                        </div>
+                        <span>Brgy. Villa Bota Gumaca,Quezon Province, Philippines</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
     <script src="script.js"></script>
 </body>
 
